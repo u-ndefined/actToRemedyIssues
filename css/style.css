@@ -1,0 +1,152 @@
+
+/*//////////Mini login://////////*/
+
+
+#mini_profil{
+	padding: 10px;
+	width: 200px;
+	/*border: solid red 1px;*/
+	background-color: rgba(10, 0, 255, 0.1);
+	float: right;
+}
+#mini_profil_username{
+	font-weight: bold;
+	display: inline;
+
+	/*border: solid red 1px;*/
+}
+#mini_profil_picture{
+	margin-right: 20px;
+
+}
+#mini_profil_links{
+	font-size: 10px;
+	float: right;
+	/*border: solid red 1px;*/
+	/*font-style: normal;*/
+}
+
+#mini_login{
+	background-color: rgba(10, 0, 255, 0.1);
+
+	width: 200px;
+	float: right;
+}
+
+/*//////////ARI://////////*/
+
+.aris{
+	position: absolute;
+	left: 200px;
+	top:100px;
+}
+
+.ari{
+	position : relative;
+	/*width: 900px;*/
+	height: 350px;
+	padding: 15px;
+}
+
+.box{
+	/*border: solid red 1px;*/
+	width: 300px;
+	height: 300px;
+	overflow: scroll;
+	/*float: left;*/
+}
+
+.issue{
+	position: absolute;
+	top:0px;
+	left:0px;
+	background-color: rgba(255, 0, 0, 0.2);
+}
+.remedy{
+	background-color: rgba(0, 0, 255, 0.2);
+}
+
+.act{
+	background-color: rgba(0, 255, 0, 0.2);
+}
+
+.remedies{
+	position: absolute;
+	top:0px;
+	left: 300px;
+
+	height: 300px;
+	width: 600px;
+	overflow: scroll;
+}
+
+.acts{
+	position: absolute;
+	left: 300px;
+	top:0px;
+	overflow: scroll;
+	width: 300px;
+	height: 300px;
+}
+/*//////////Post buttons://////////*/
+
+.postButton{
+	position: absolute;
+	top: 0px;
+	z-index: 10;
+}
+
+/*//////////Menu://////////*/
+#menu{
+	/*position:absolute;*/
+}
+
+.menu_ul {
+ padding:0;
+ margin:0;
+ list-style-type:none;
+ }
+.menu_li_section {
+ margin-left:2px;
+ float:left; /*pour IE*/
+ }
+.menu_a_section {
+ display:block;
+ float:left;   
+ width:100px;
+ background-color:#6495ED;
+ color:black;
+ text-decoration:none;
+ text-align:center;
+ padding:5px;
+ border:2px solid;
+ /*pour avoir un effet "outset" avec IE :*/
+ border-color:#DCDCDC #696969 #696969 #DCDCDC;
+ }
+.menu_a_section:hover {
+ background-color:#D3D3D3;
+ border-color:#696969 #DCDCDC #DCDCDC #696969;
+ } 
+ /*poster*/
+ .menu_li_post {
+ margin-left:2px;
+ float:left; /*pour IE*/
+ }
+.menu_a_post {
+ display:block;
+ float:left;   
+ width:100px;
+ background-color:rgb(200,20,20);
+ color:black;
+ text-decoration:none;
+ text-align:center;
+ padding:5px;
+ border:2px solid;
+ /*pour avoir un effet "outset" avec IE :*/
+ border-color:#DCDCDC #696969 #696969 #DCDCDC;
+ }
+.menu_a_post:hover {
+ background-color:rgb(200,70,70);
+ border-color:#696969 #DCDCDC #DCDCDC #696969;
+ } 
+
