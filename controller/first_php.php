@@ -14,11 +14,15 @@ $picture=(isset($_SESSION['picture'])?$_SESSION['picture']:'');
 
 //On inclue les 2 pages restantes
 
-require_once("functions.php");
+require_once("model/functions.php");
 
-require_once("constants.php");
+require_once("model/constants.php");
 
 require_once('model/get_functions.php');
+
+require_once('model/set_functions.php');
+
+require_once('model/update_functions.php');
 
 $sections = get_sections();
 

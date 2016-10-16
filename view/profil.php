@@ -1,7 +1,3 @@
-<?php
-$titre = "profil";
-require_once("includes/first_html.php");
-?>
 <?php 
 if($yourProfil){
 	if(isset($i)){
@@ -121,7 +117,11 @@ if($yourProfil){
 			<input type="hidden" id="sent" name="sent" value="1" />
 			<?php }?>
 
-		</p></form>
+		</p>
+	</form>
 		<a href="<?php echo 'ari.php?page=profil&action=read&m='.$id;?>">voir son profil</a>
 		<br />
 		<a href="<?php echo 'ari.php?page=profil&action=write'?>">modifier son profil</a>
+
+	</body>
+</html>

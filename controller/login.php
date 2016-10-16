@@ -1,6 +1,6 @@
 <?php
-require_once("includes/first_php.php");
-require_once('model/get_functions.php');
+
+if ($id!=0) error(ERR_IS_CO); //error si déja connecté
 
 $redirect = NULL;
 if(isset($_POST['location']) && $_POST['location'] != '') {
@@ -66,6 +66,3 @@ else {
 	}
 }
 }
-
-
-require_once("view/login.php");

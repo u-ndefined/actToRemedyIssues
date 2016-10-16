@@ -30,5 +30,4 @@ else {
 		</div>
 	</div>
 	<?php
-}
-	
+}	

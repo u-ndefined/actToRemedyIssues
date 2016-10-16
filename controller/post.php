@@ -1,11 +1,6 @@
 <?php
-require_once('includes/first_php.php');
-require_once('model/get_functions.php');
-require_once('model/set_functions.php');
 
 // $action = (isset($_GET['action']))?htmlspecialchars($_GET['action']):'';
-
-
 
 if ($id==0) error(ERR_IS_NOT_CO);
 
@@ -109,6 +104,3 @@ if(isset($_POST['type'])){
 	}
 	
 }
-
-
-require_once('view/post.php');

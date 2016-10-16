@@ -1,15 +1,7 @@
-<?php
-$titre = "login";
-require_once("includes/first_html.php");
-
-if ($id!=0) error(ERR_IS_CO); //error si déja connecté
-
-else { //si l'utilisateur n'a pas essayé de se connecter
-?>
 <form method="post" action="ari.php?page=login">
 	<fieldset>
 		<legend>Log in</legend>
-		<?php if(isset($message)) echo $message; ?>
+		<?php if(isset($message)) echo '<p>'.$message.'</p>'; ?>
 		<p>
 			<label for="username">username :</label><input name="username" type="text" id="username" /><br />
 			<label for="password">password :</label><input type="password" name="password" id="password" />
@@ -20,9 +12,5 @@ else { //si l'utilisateur n'a pas essayé de se connecter
 	<p><input type="submit" value="login" /></p></form>
 	<a href="./ari.php?page=register">register?</a>
 
-</div>
 </body>
 </html>
-
-<?php
-}

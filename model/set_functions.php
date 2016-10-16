@@ -1,6 +1,6 @@
 <?php
 
-function newMember($username, $password, $email, $pictureName, $date){
+function set_member($username, $password, $email, $pictureName, $date){
 	global $db; 
 
 	$query=$db->prepare('INSERT INTO member (member_username, member_password, member_email, member_picture, member_signinDate, member_rank)

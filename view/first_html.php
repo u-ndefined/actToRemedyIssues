@@ -21,7 +21,7 @@ echo (!empty($titre))?'<title>'.$titre.'</title>':'<title> ARI </title>';
 <body>
 
 <?php 
-require_once("static/profil_menu.php");
-require_once("static/menu.php");
+require_once("view/profil_menu.php");
+require_once("view/menu.php");
 
 ?>

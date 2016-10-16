@@ -1,9 +1,4 @@
 <?php
-$titre = "register";
-require_once("includes/first_html.php");
-
-if ($id!=0) error(ERR_IS_CO);
-
 if($i>0){ //si déjà post, afficher erreurs
 	echo'<h1>Inscription échouée (t\'es nul)</h1>';
 
@@ -60,7 +55,8 @@ if($i>0){ //si déjà post, afficher erreurs
 
 		<p>Les champs précédés d un * sont obligatoires</p>
 
-		<p><input type="submit" value="register" /></p></form>
+		<p><input type="submit" value="register" /></p>
+	</form>
 
 	</div>
 

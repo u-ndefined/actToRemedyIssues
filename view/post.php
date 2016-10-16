@@ -1,11 +1,8 @@
 <?php
-$titre = "post";
-
-require_once('includes/first_html.php');
 
 if(isset($_GET['posted'])) echo 'Posted correctly';
 if(isset($i) && $i>0){
-	echo'<h1>Post échoué (t\'es nul)</h1>';
+	echo'<h1>Post échoué</h1>';
 
     	echo'<p>Une ou plusieurs erreurs se sont produites pendant le post</p>';
 
@@ -90,6 +87,7 @@ if(isset($i) && $i>0){
 
 		</fieldset>
 		<input type="submit" name="submit" value="submit" />
+	</form>
 
 		</body>
 
