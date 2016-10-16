@@ -4,6 +4,8 @@
 
 if ($id==0) error(ERR_IS_NOT_CO);
 
+$here = 'ari.php?page=post';
+
 if (isset ($_GET['s'])){
 	$sectionID = (int) $_GET['s'];
 	$section = get_section($sectionID);
