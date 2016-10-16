@@ -1,8 +1,5 @@
 <?php
-require_once("includes/first_php.php");
-
-require_once("model/get_functions.php");
-require_once("model/set_functions.php");
+if ($id!=0) error(ERR_IS_CO);
 
 if(!empty($_POST['username'])){
 
@@ -175,11 +172,9 @@ if(!empty($_POST['username'])){
 
         if(!empty($_FILES['avatar']['size'])) $pictureName = move_avatar($_FILES['avatar']);
 
-    	newMember($username, $password, $email, $pictureName, $date);
+    	set_member($username, $password, $email, $pictureName, $date);
 
     	header("Location:ari.php?page=login&comment=register");
 
     }
 }
-
-require_once("view/register.php");

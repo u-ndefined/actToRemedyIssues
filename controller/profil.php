@@ -1,7 +1,4 @@
 <?php
-require_once("includes/first_php.php");
-require_once("model/get_functions.php");
-require_once("model/update_functions.php");
 
 $action = isset($_GET['action'])?htmlspecialchars($_GET['action']):'read';
 
@@ -165,5 +162,3 @@ switch ($action) {
 	echo'Bizarre o_O';
 	break;
 }
-
-require_once("view/profil.php");
