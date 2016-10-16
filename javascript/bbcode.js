@@ -1,111 +1,118 @@
+var textareaSelected = null;
+
+function selectTextarea(textareaID){
+	textareaSelected = textareaID;
+}
 
 
-function bbcode(bbdebut, bbfin, textareaID)
 
-{
+function insertTag(startTag, endTag, tagType) {
 
-	var input = document.getElementById(textareaID);;
+	var field  = document.getElementById(textareaSelected); 
 
-	input.focus();
+	var scroll = field.scrollTop;
 
-	if(typeof document.selection != 'undefined')
+	field.focus();
 
-	{
 
-		var range = document.selection.createRange();
 
-		var insText = range.text;
+	/* === Partie 1 : on récupère la sélection === */
 
-		range.text = bbdebut + insText + bbfin;
+	if (window.ActiveXObject) {
 
-		range = document.selection.createRange();
+		var textRange = document.selection.createRange();            
 
-		if (insText.length == 0)
+		var currentSelection = textRange.text;
 
-		{
+	} else {
 
-			range.move('character', -bbfin.length);
+		var startSelection   = field.value.substring(0, field.selectionStart);
 
-		}
+		var currentSelection = field.value.substring(field.selectionStart, field.selectionEnd);
 
-		else
-
-		{
-
-			range.moveStart('character', bbdebut.length + insText.length + bbfin.length);
-
-		}
-
-		range.select();
+		var endSelection     = field.value.substring(field.selectionEnd);               
 
 	}
 
-	else if(typeof input.selectionStart != 'undefined')
 
-	{
 
-		var start = input.selectionStart;
+	/* === Partie 2 : on analyse le tagType === */
 
-		var end = input.selectionEnd;
+	if (tagType) {
 
-		var insText = input.value.substring(start, end);
+		switch (tagType) {
 
-		input.value = input.value.substr(0, start) + bbdebut + insText + bbfin + input.value.substr(end);
+			case "link":
 
-		var pos;
+			endTag = "</link>";
 
-		if (insText.length == 0)
+        if (currentSelection) { // Il y a une sélection
 
-		{
+        	if (currentSelection.indexOf("http://") == 0 || currentSelection.indexOf("https://") == 0 || currentSelection.indexOf("ftp://") == 0 || currentSelection.indexOf("www.") == 0) {
 
-			pos = start + bbdebut.length;
+                        // La sélection semble être un lien. On demande alors le libellé
 
-		}
+                        var label = prompt("Quel est le libellé du lien ?") || "";
 
-		else
+                        startTag = "<link url=\"" + currentSelection + "\">";
 
-		{
+                        currentSelection = label;
 
-			pos = start + bbdebut.length + insText.length + bbfin.length;
+                    } else {
 
-		}
+                        // La sélection n'est pas un lien, donc c'est le libelle. On demande alors l'URL
 
-		input.selectionStart = pos;
+                        var URL = prompt("Quelle est l'url ?");
 
-		input.selectionEnd = pos;
+                        startTag = "<link url=\"" + URL + "\">";
 
-	}
+                    }
 
-	
+        } else { // Pas de sélection, donc on demande l'URL et le libelle
 
-	else
+        var URL = prompt("Quelle est l'url ?") || "";
 
-	{
+        var label = prompt("Quel est le libellé du lien ?") || "";
 
-		var pos;
+        startTag = "<link url=\"" + URL + "\">";
 
-		var re = new RegExp('^[0-9]{0,3}$');
+        currentSelection = label;                     
 
-		while(!re.test(pos))
+    }
 
-		{
+    break;
 
-			pos = prompt("insertion (0.." + input.value.length + "):", "0");
+    
 
-		}
+}
 
-		if(pos > input.value.length)
+}
 
-		{
 
-			pos = input.value.length;
 
-		}
+/* === Partie 3 : on insère le tout === */
 
-		var insText = prompt("Veuillez taper le texte");
+if (window.ActiveXObject) {
 
-		input.value = input.value.substr(0, pos) + bbdebut + insText + bbfin + input.value.substr(pos);
+	textRange.text = startTag + currentSelection + endTag;
 
-	}
+	textRange.moveStart("character", -endTag.length - currentSelection.length);
+
+	textRange.moveEnd("character", -endTag.length);
+
+	textRange.select();     
+
+} else {
+
+	field.value = startSelection + startTag + currentSelection + endTag + endSelection;
+
+	field.focus();
+
+	field.setSelectionRange(startSelection.length + startTag.length, startSelection.length + startTag.length + currentSelection.length);
+
+} 
+
+
+field.scrollTop = scroll;     
 
 }

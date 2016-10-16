@@ -26,7 +26,7 @@ if(isset($i) && $i>0){
 <h1>Poster</h1>
 <form method="post" action="<?php echo $here;?>" enctype="multipart/form-data">
 
-<?php require_once('javascript/bbcodeTools.php'); ?>
+<?php require_once('view/bbcodeTools.php'); ?>
 
 <fieldset><legend>contexte</legend>
 	<?php
@@ -42,13 +42,13 @@ if(isset($i) && $i>0){
 					</fieldset>
 					<fieldset><legend>Votre problème</legend>
 					<label for='issueTitle'>Titre du problème: </label>
-					<input name="issueTitle" type="text" id="issueTitle" />
+					<input onclick="selectTextarea(this.id);" id="issueTitle" name="issueTitle" type="text" id="issueTitle" />
 					<br />
 					<label for='issueContent'>Contenu: </label>
-					<textarea cols="80" rows="8" id="issueContent" name="issueContent"></textarea>
+					<textarea onclick="selectTextarea(this.id);" cols="80" rows="8" id="issueContent" name="issueContent"></textarea>
 					<br />
 					<label for='issueSources'>Sources: </label>
-					<textarea cols="80" rows="8" id="issueSources" name="issueSources"></textarea>
+					<textarea onclick="selectTextarea(this.id);" cols="80" rows="8" id="issueSources" name="issueSources"></textarea>
 					<br />
 				<?php
 				}
@@ -60,13 +60,13 @@ if(isset($i) && $i>0){
 				</fieldset>
 				<fieldset><legend>Votre solution</legend>
 				<label for='remedyTitle'>Titre de la solution: </label>
-				<input name="remedyTitle" type="text" id="remedyTitle" />
+				<input onclick="selectTextarea(this.id);" name="remedyTitle" type="text" id="remedyTitle" />
 				<br />
 				<label for='remedyContent'>Contenu: </label>
-				<textarea cols="80" rows="8" id="remedyContent" name="remedyContent"></textarea>
+				<textarea onclick="selectTextarea(this.id);" cols="80" rows="8" id="remedyContent" name="remedyContent"></textarea>
 				<br />
 				<label for='remedySources'>Sources: </label>
-				<textarea cols="80" rows="8" id="remedySources" name="remedySources"></textarea>
+				<textarea onclick="selectTextarea(this.id);" cols="80" rows="8" id="remedySources" name="remedySources"></textarea>
 				<br />
 		<?php
 		}
@@ -80,10 +80,10 @@ if(isset($i) && $i>0){
 		</fieldset>
 		<fieldset><legend>Votre action</legend>
 		<label for='actTitle'>Titre de l'action: </label>
-		<input name="actTitle" type="text" id="actTitle" />
+		<input onclick="selectTextarea(this.id);" name="actTitle" type="text" id="actTitle" />
 		<br />
 		<label for='actContent'>Contenu: </label>
-		<textarea cols="80" rows="8" id="actContent" name="actContent"></textarea>
+		<textarea onclick="selectTextarea(this.id);" cols="80" rows="8" id="actContent" name="actContent"></textarea>
 
 		</fieldset>
 		<input type="submit" name="submit" value="submit" />

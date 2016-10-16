@@ -1,4 +1,4 @@
-<form class="form_postButton_remedy" method="post" action="ari.php?page=post&amp;s=<?php echo $section;?>" enctype="multipart/form-data">
+<form class="form_postButton_remedy" method="post" action="ari.php?page=post&amp;s=<?php echo $s;?>" enctype="multipart/form-data">
 	<input class="postButton postAct" type="submit" name="addIssue" value="add" />
 </form>
 <div class="aris">
