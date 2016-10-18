@@ -27,6 +27,7 @@ else {
 			<a href="./ari.php?page=logout&amp;location=<?php echo toValidURL($_SERVER['REQUEST_URI']);?>"><br>logout</a>
 			<a href="./ari.php?page=profil&amp;action=read&amp;m=<?php echo $id;?>">voir son profil</a>
 			<a href="./ari.php?page=profil&amp;action=write&amp;m=<?php echo $id;?>">modifier</a>
+			<a href="./ari.php?page=mailbox&amp;action=read&amp;query=received">messagerie</a>
 		</div>
 	</div>
 	<?php

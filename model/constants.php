@@ -12,4 +12,6 @@ define('ERR_IS_CO','Vous ne pouvez pas accéder à cette page si vous êtes déj
 
 define('ERR_IS_NOT_CO','Vous n\'êtes pas connecté');
 
+define('ERR_WRONG_USER','Ceci ne vous est pas adressé, vous n\'êtes pas le bon utilisateur');
+
 ?>

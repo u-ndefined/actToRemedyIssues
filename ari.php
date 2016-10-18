@@ -57,6 +57,12 @@ if(isset($_GET['page'])){
 			require_once("view/first_html.php");
 			require_once('view/delete.php');
 			break;
+
+		case 'mailbox':
+			require_once('controller/mailbox.php');
+			require_once("view/first_html.php");
+			require_once('view/mailbox.php');
+			break;
 		
 		default:
 			require_once('controller/index.php');
@@ -67,6 +73,7 @@ if(isset($_GET['page'])){
 }
 else {
 	require_once('controller/index.php');
+	$titre = 'index';
 	require_once("view/first_html.php");
 	require_once('view/index.php');
 }
