@@ -1,3 +1,4 @@
+<div id="page_content">	
 <form class="form_postButton_remedy" method="post" action="ari.php?page=post&amp;s=<?php echo $s;?>" enctype="multipart/form-data">
 	<input class="postButton postAct" type="submit" name="addIssue" value="add" />
 </form>
@@ -92,6 +93,7 @@ if(isset($issues)){
 		
 }
 ?>
+</div>
 </div>
 <script type="text/javascript" src="javascript/smoothScrolling.js"></script>
 

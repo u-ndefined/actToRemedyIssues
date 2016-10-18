@@ -1,3 +1,4 @@
+<div id="page_content">	
 <?php
 
 if(isset($_GET['posted'])) echo 'Posted correctly';
@@ -88,6 +89,7 @@ if(isset($i) && $i>0){
 		</fieldset>
 		<input type="submit" name="submit" value="submit" />
 	</form>
+</div>
 
 		</body>
 

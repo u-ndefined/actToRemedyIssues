@@ -29,11 +29,11 @@ function smoothScroll(documentID, scrollGoal, d){
   console.debug(d);
   var scrollValue = document.getElementById(documentID).scrollTop;
   if(scrollValue < scrollGoal){
-    document.getElementById(documentID).scrollTop += d/10;
+    document.getElementById(documentID).scrollTop += 5;
     smooth = setTimeout(function() {smoothScroll(documentID,scrollGoal,d)}, 15);
   }
   else if(scrollValue > scrollGoal){
-    document.getElementById(documentID).scrollTop -= d/10; 
+    document.getElementById(documentID).scrollTop -= 5; 
     smooth = setTimeout(function() {smoothScroll(documentID,scrollGoal,d)}, 15);
   }
   else clearTimeout(smooth);
