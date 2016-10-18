@@ -45,6 +45,18 @@ if(isset($_GET['page'])){
 			require_once("view/first_html.php");
 			require_once('view/section.php');
 			break;
+
+		case 'modify':
+			require_once('controller/modify.php');
+			require_once("view/first_html.php");
+			require_once('view/modify.php');
+			break;
+
+		case 'delete':
+			require_once('controller/delete.php');
+			require_once("view/first_html.php");
+			require_once('view/delete.php');
+			break;
 		
 		default:
 			require_once('controller/index.php');

@@ -1,0 +1,1 @@
+<a id="logo_a" href="ari.php?page=index"> <img id="logo_img" src="./images/ari/logo.png?>" alt="A.R.I." /></a>

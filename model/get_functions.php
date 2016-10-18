@@ -21,7 +21,7 @@ function get_issues($sectionID)
 
     global $db; 
 
-    $req = $db->prepare('SELECT issue_id, issue_title, issue_content, issue_sectionID FROM issue WHERE issue_sectionID = :sectionID ORDER BY issue_urgency DESC');
+    $req = $db->prepare('SELECT issue_id, issue_title, issue_content, issue_sectionID, issue_authorID FROM issue WHERE issue_sectionID = :sectionID ORDER BY issue_urgency DESC');
 
     $req->bindParam(':sectionID', $sectionID, PDO::PARAM_INT);
 
@@ -39,7 +39,7 @@ function get_remedies($issueID)
 
     global $db; 
 
-    $req = $db->prepare('SELECT remedy_id, remedy_title, remedy_content FROM remedy WHERE remedy_issueID = :issueID ORDER BY remedy_relevence DESC');
+    $req = $db->prepare('SELECT remedy_id, remedy_title, remedy_content, remedy_authorID FROM remedy WHERE remedy_issueID = :issueID ORDER BY remedy_relevence DESC');
 
     $req->bindParam(':issueID', $issueID, PDO::PARAM_INT);
 
@@ -57,7 +57,7 @@ function get_acts($remedyID)
 
     global $db; 
 
-    $req = $db->prepare('SELECT act_id, act_title, act_content FROM act WHERE act_remedyID = :remedyID ORDER BY act_feasibility DESC');
+    $req = $db->prepare('SELECT act_id, act_title, act_content, act_authorID FROM act WHERE act_remedyID = :remedyID ORDER BY act_feasibility DESC');
 
     $req->bindParam(':remedyID', $remedyID, PDO::PARAM_INT);
 
@@ -160,7 +160,7 @@ function get_issue($issueID)
 
     global $db; 
 
-    $req = $db->prepare('SELECT issue_id, issue_title, issue_content FROM issue WHERE issue_id = :issueID');
+    $req = $db->prepare('SELECT issue_id, issue_title, issue_content, issue_sources, issue_authorID FROM issue WHERE issue_id = :issueID');
 
     $req->bindParam(':issueID', $issueID, PDO::PARAM_INT);
 
@@ -178,7 +178,7 @@ function get_remedy($remedyID)
 
     global $db; 
 
-    $req = $db->prepare('SELECT remedy_id, remedy_title, remedy_content FROM remedy WHERE remedy_id = :remedyID');
+    $req = $db->prepare('SELECT remedy_id, remedy_title, remedy_content, remedy_sources, remedy_authorID FROM remedy WHERE remedy_id = :remedyID');
 
     $req->bindParam(':remedyID', $remedyID, PDO::PARAM_INT);
 
@@ -196,7 +196,7 @@ function get_act($actID)
 
     global $db; 
 
-    $req = $db->prepare('SELECT act_id, act_title, act_content FROM act WHERE act_id = :actID');
+    $req = $db->prepare('SELECT act_id, act_title, act_content, act_authorID FROM act WHERE act_id = :actID');
 
     $req->bindParam(':actID', $actID, PDO::PARAM_INT);
 

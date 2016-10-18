@@ -1,3 +1,22 @@
+/*//////////Page content://////////*/
+#page_content{
+	position: absolute;
+	top: 200px;
+	left: 150px;
+}
+
+/*//////////Logo://////////*/
+
+#logo_img{
+	position: absolute;
+	top:0px;
+	left:0px;
+	padding: 10px;
+	width: 200px;
+	/*float: left;*/
+}
+
+
 
 /*//////////Mini login://////////*/
 
@@ -37,8 +56,8 @@
 
 .aris{
 	position: absolute;
-	left: 200px;
-	top:100px;
+	/*left: 150px;
+	top:150px;*/
 }
 
 .ari{
@@ -97,11 +116,14 @@
 }
 
 /*//////////Menu://////////*/
-#menu{
-	/*position:absolute;*/
-}
+/*#menu{
+	
+}*/
 
 .menu_ul {
+	position:absolute;
+	top:50px;
+	left:230px;
  padding:0;
  margin:0;
  list-style-type:none;

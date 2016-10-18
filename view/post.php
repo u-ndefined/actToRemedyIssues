@@ -1,3 +1,4 @@
+<div id="page_content">	
 <?php
 
 if(isset($_GET['posted'])) echo 'Posted correctly';
@@ -42,7 +43,7 @@ if(isset($i) && $i>0){
 					</fieldset>
 					<fieldset><legend>Votre problème</legend>
 					<label for='issueTitle'>Titre du problème: </label>
-					<input onclick="selectTextarea(this.id);" id="issueTitle" name="issueTitle" type="text" id="issueTitle" />
+					<input onclick="selectTextarea(this.id);" id="issueTitle" name="issueTitle" type="text"/>
 					<br />
 					<label for='issueContent'>Contenu: </label>
 					<textarea onclick="selectTextarea(this.id);" cols="80" rows="8" id="issueContent" name="issueContent"></textarea>
@@ -88,6 +89,7 @@ if(isset($i) && $i>0){
 		</fieldset>
 		<input type="submit" name="submit" value="submit" />
 	</form>
+</div>
 
 		</body>
 

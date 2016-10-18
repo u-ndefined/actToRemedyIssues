@@ -24,6 +24,8 @@ require_once('model/set_functions.php');
 
 require_once('model/update_functions.php');
 
+require_once('model/delete_functions.php');
+
 require_once('model/text_functions.php');
 
 $sections = get_sections();

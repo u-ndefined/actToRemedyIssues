@@ -1,3 +1,4 @@
+<div id="page_content">	
 <?php
 if($i>0){ //si déjà post, afficher erreurs
 	echo'<h1>Inscription échouée (t\'es nul)</h1>';
@@ -59,6 +60,7 @@ if($i>0){ //si déjà post, afficher erreurs
 	</form>
 
 	</div>
+</div>
 
 </body>
 

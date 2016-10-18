@@ -1,3 +1,4 @@
+<div id="page_content">	
 <?php 
 if($yourProfil){
 	if(isset($i)){
@@ -122,6 +123,6 @@ if($yourProfil){
 		<a href="<?php echo 'ari.php?page=profil&action=read&m='.$id;?>">voir son profil</a>
 		<br />
 		<a href="<?php echo 'ari.php?page=profil&action=write'?>">modifier son profil</a>
-
+</div>
 	</body>
 </html>
