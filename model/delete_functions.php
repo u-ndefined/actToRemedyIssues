@@ -35,3 +35,15 @@ function delete_issue($issueID){
 
         $query->execute();
 }
+
+function delete_PM($PM_id){
+        global $db;
+
+        $query=$db->prepare('DELETE FROM privateMessage
+
+        WHERE PM_id = :PM_id');
+
+        $query->bindValue(':PM_id',$PM_id,PDO::PARAM_INT);
+
+        $query->execute();
+}

@@ -98,6 +98,20 @@ function alreadyTaken($field, $value)
 	return $alreadyTaken;
 }
 
+function findMember($member_username){
+    global $db; 
+
+    $query=$db->prepare('SELECT COUNT(*) AS nbr FROM member WHERE member_username = :member_username');
+
+    $query->bindValue(':member_username',$member_username, PDO::PARAM_STR);
+
+    $query->execute();
+
+    $memberFound=($query->fetchColumn()==0)?False:True;
+
+    return $memberFound;
+}
+
 function get_memberByName($username)
 
 {
@@ -240,5 +254,58 @@ function get_IDbyTitle($type, $title)
     $id = $req->fetch();
 
     return $id['id'];
+
+}
+
+function get_PM($PM_id){
+    global $db; 
+
+    $req = $db->prepare('SELECT PM_sender, PM_recipient, PM_title, PM_content, PM_sendDate, PM_read, member_username FROM privateMessage LEFT JOIN member ON member_id = PM_sender WHERE PM_id = :PM_id');
+
+    $req->bindParam(':PM_id', $PM_id, PDO::PARAM_INT);
+
+    $req->execute();
+
+    $PM = $req->fetch();
+
+    return $PM;
+
+}
+
+function get_receivedPMs($memberID){
+    global $db; 
+
+    $req = $db->prepare('SELECT PM_id, PM_sender, PM_title, PM_content, PM_sendDate, PM_read,
+        member_username, member_picture
+        FROM privateMessage
+        LEFT JOIN member ON member_id = PM_sender
+        WHERE PM_recipient = :memberID');
+
+    $req->bindParam(':memberID', $memberID, PDO::PARAM_INT);
+
+    $req->execute();
+
+    $receivedPMs = $req->fetchAll();
+
+    return $receivedPMs;
+
+}
+
+function get_sentPMs($memberID){
+    global $db; 
+
+    $req = $db->prepare('SELECT PM_id, PM_recipient, PM_title, PM_content, PM_sendDate, PM_read,
+        member_username, member_picture
+        FROM privateMessage
+        LEFT JOIN member ON member_id = PM_recipient
+        WHERE PM_sender = :memberID');
+
+    $req->bindParam(':memberID', $memberID, PDO::PARAM_INT);
+
+    $req->execute();
+
+    $sentPMs = $req->fetchAll();
+
+    return $sentPMs;
 
 }

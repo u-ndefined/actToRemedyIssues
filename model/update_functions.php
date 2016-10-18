@@ -98,3 +98,20 @@ function update_act($actID, $title, $content, $modifyDate){
 
         $query->execute();
 }
+
+function update_PMread($PM_id){
+    global $db;
+
+    $query=$db->prepare('UPDATE privateMessage
+
+        SET  PM_read = :read
+
+        WHERE PM_id = :PM_id');
+
+        $query->bindValue(':read','1',PDO::PARAM_INT);
+
+        $query->bindValue(':PM_id',$PM_id,PDO::PARAM_INT);
+
+        $query->execute();
+
+}

@@ -1,5 +1,28 @@
 <?php
 
+function set_PM($senderID, $recipientID, $title, $content, $sendDate){
+    global $db;
+
+    $query=$db->prepare('INSERT INTO privateMessage (PM_sender, PM_recipient, PM_title, PM_content, PM_sendDate, PM_read)
+
+        VALUES (:senderID, :recipientID, :title, :content, :sendDate, :read)');
+
+        $query->bindValue(':senderID', $senderID, PDO::PARAM_STR);
+
+        $query->bindValue(':recipientID', $recipientID, PDO::PARAM_INT);
+
+        $query->bindValue(':title', $title, PDO::PARAM_STR);
+
+        $query->bindValue(':content', $content, PDO::PARAM_STR);
+
+        $query->bindValue(':sendDate', $sendDate, PDO::PARAM_INT);
+
+        $query->bindValue(':read', '0', PDO::PARAM_INT);
+
+
+        $query->execute();
+}
+
 function set_member($username, $password, $email, $pictureName, $date){
 	global $db; 
 
