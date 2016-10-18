@@ -15,25 +15,26 @@ function forceToScroll(documentID){
   var scrollValueMod = scrollValue % boxSize;
   if(scrollValueMod < scrollMin || scrollValueMod > boxSize - scrollMin) var scrollGoal = Math.round(scrollValue/300)*300;
   else{
-    sign = Math.sign(scrollValue - lastScrollTop);
+    var sign = Math.sign(scrollValue - lastScrollTop);
     var scrollGoal = scrollValue - scrollValueMod + (boxSize * sign);
   }
-  d = Math.abs(scrollGoal - scrollValue);
+  var d = Math.abs(scrollGoal - scrollValue);
   lastScrollTop  = scrollGoal;
   smoothScroll(documentID, scrollGoal, d);
 }
   
   
 
-function smoothScroll(documentID, scrollGoal){
+function smoothScroll(documentID, scrollGoal, d){
+  console.debug(d);
   var scrollValue = document.getElementById(documentID).scrollTop;
   if(scrollValue < scrollGoal){
     document.getElementById(documentID).scrollTop += d/10;
-    smooth = setTimeout(function() {smoothScroll(documentID,scrollGoal)}, 15);
+    smooth = setTimeout(function() {smoothScroll(documentID,scrollGoal,d)}, 15);
   }
   else if(scrollValue > scrollGoal){
     document.getElementById(documentID).scrollTop -= d/10; 
-    smooth = setTimeout(function() {smoothScroll(documentID,scrollGoal)}, 15);
+    smooth = setTimeout(function() {smoothScroll(documentID,scrollGoal,d)}, 15);
   }
   else clearTimeout(smooth);
 

@@ -102,7 +102,7 @@ if(isset($_POST['type'])){
 		}
 		if($type > 0 && isset($actTitle)) set_act($actTitle, $actContent, $id, $date, $remedyID);
 
-		header('Location:ari.php?section='.$sectionID);
+		header('Location:ari.php?page=section&s='.$sectionID);
 	}
 	
 }

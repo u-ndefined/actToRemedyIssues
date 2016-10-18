@@ -21,7 +21,6 @@ echo (!empty($titre))?'<title>'.$titre.'</title>':'<title> ARI </title>';
 <body>
 
 <?php 
+require_once("view/logo.php");
 require_once("view/profil_menu.php");
 require_once("view/menu.php");
-
-?>

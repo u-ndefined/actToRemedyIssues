@@ -12,7 +12,20 @@ if(isset($issues)){
 				<div class="issue box">
 					<p class="issue_title"><?php echo $issue['issue_title'];?></p>
 					<p class="issue_content"><?php echo $issue['issue_content'];?></p>
+					<?php
+				if($id == $issue['issue_authorID']){
+				?>
+					<form class="form_modifyButton_issue" method="post" action="ari.php?page=modify&amp;s=<?php echo $issue['issue_sectionID'];?>&amp;i=<?php echo $issue['issue_id'];?>" enctype="multipart/form-data">
+						<input class="modifyButton modifyIssue" type="submit" name="modifyIssue" value="modifier" />
+					</form>
+					<form class="form_deleteButton_issue" method="post" action="ari.php?page=delete&amp;s=<?php echo $issue['issue_sectionID'];?>&amp;i=<?php echo $issue['issue_id'];?>" enctype="multipart/form-data">
+						<input class="deleteButton deleteIssue" type="submit" name="deleteIssue" value="supprimer" />
+					</form>
+				<?php
+				}
+				?>
 				</div>
+				
 				
 				<div id="remedies<?php echo $key;?>" class="remedies" onscroll="stopScrolling(this.id)">
 				<form class="form_postButton_remedy" method="post" action="ari.php?page=post&amp;s=<?php echo $issue['issue_sectionID'];?>&amp;i=<?php echo $issue['issue_id'];?>" enctype="multipart/form-data">
@@ -24,7 +37,21 @@ if(isset($issues)){
 					<div class="remedy box">
 						<p class="remedy_title"><?php echo $remedy['remedy_title'];?></p>
 						<p class="remedy_content"><?php echo $remedy['remedy_content'];?></p>
+						<?php
+					if($id == $issue['issue_authorID']){
+					?>
+						<form class="form_modifyButton_remedy" method="post" action="ari.php?page=modify&amp;s=<?php echo $issue['issue_sectionID'];?>&amp;i=<?php echo $issue['issue_id'];?>&amp;r=<?php echo $remedy['remedy_id'];?>" enctype="multipart/form-data">
+							<input class="modifyButton modifyRemedy" type="submit" name="modifyRemedy" value="modifier" />
+						</form>
+						<form class="form_deleteButton_remedy" method="post" action="ari.php?page=delete&amp;s=<?php echo $issue['issue_sectionID'];?>&amp;i=<?php echo $issue['issue_id'];?>&amp;r=<?php echo $remedy['remedy_id'];?>" enctype="multipart/form-data">
+							<input class="deleteButton deleteRemedy" type="submit" name="deleteRemedy" value="supprimer" />
+						</form>
+					<?php
+					}
+					?>
 					</div>
+
+					
 				
 				<div id="acts<?php echo $key;?>_acts<?php echo $key2;?>" class="acts" style="top:<?php echo $key2*300;?>px;" onscroll="stopScrolling(this.id)">
 				<form class="form_postButton_act" method="post" action="ari.php?page=post&amp;s=<?php echo $issue['issue_sectionID'];?>&amp;i=<?php echo $issue['issue_id'];?>&amp;r=<?php echo $remedy['remedy_id'];?>" enctype="multipart/form-data">
@@ -36,8 +63,21 @@ if(isset($issues)){
 						<div class="act box" onclick="stop();">
 							<p class="act_title"><?php echo $act['act_title'];?></p>
 							<p class="act_content"><?php echo $act['act_content'];?></p>
+							<?php
+						if($id == $issue['issue_authorID']){
+						?>
+							<form class="form_modifyButton_act" method="post" action="ari.php?page=modify&amp;s=<?php echo $issue['issue_sectionID'];?>&amp;i=<?php echo $issue['issue_id'];?>&amp;r=<?php echo $remedy['remedy_id'];?>&amp;a=<?php echo $act['act_id'];?>" enctype="multipart/form-data">
+								<input class="modifyButton modifyAct" type="submit" name="modifyAct" value="modifier" />
+							</form>
+							<form class="form_deleteButton_act" method="post" action="ari.php?page=delete&amp;s=<?php echo $issue['issue_sectionID'];?>&amp;i=<?php echo $issue['issue_id'];?>&amp;r=<?php echo $remedy['remedy_id'];?>&amp;a=<?php echo $act['act_id'];?>" enctype="multipart/form-data">
+								<input class="deleteButton deleteAct" type="submit" name="deleteAct" value="supprimer" />
+							</form>
+						<?php
+						}
+						?>
 						</div>
 
+						
 						<?php
 					}
 					?>
