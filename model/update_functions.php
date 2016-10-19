@@ -1,4 +1,16 @@
 <?php
+function update_config($name, $value){
+
+    global $db;
+
+    $query=$db->prepare('UPDATE config SET config_value = :value WHERE config_name = :name');
+
+                $query->bindValue(':value',$value,PDO::PARAM_STR);
+
+                $query->bindValue(':name',$name,PDO::PARAM_INT);
+
+                $query->execute();
+}
 
 function update_memberPicture($memberID, $pictureName){
 
@@ -31,6 +43,30 @@ function update_member($password, $email, $memberID){
 
         $query->execute();
 }
+
+function update_memberADMIN($memberID, $username, $password, $picture, $rank){
+
+    global $db;
+
+    $query=$db->prepare('UPDATE member
+
+        SET  member_username = :username, member_password = :password, member_picture = :picture, member_rank = :rank
+
+        WHERE member_id = :memberID');
+
+        $query->bindValue(':username',$username,PDO::PARAM_INT);
+
+        $query->bindValue(':password',$password,PDO::PARAM_INT);
+
+        $query->bindValue(':picture',$picture,PDO::PARAM_STR);
+
+        $query->bindValue(':rank',$rank,PDO::PARAM_INT);
+
+        $query->bindValue(':memberID',$memberID,PDO::PARAM_INT);
+
+        $query->execute();
+}
+
 
 function update_issue($issueID, $title, $content, $sources, $modifyDate){
 

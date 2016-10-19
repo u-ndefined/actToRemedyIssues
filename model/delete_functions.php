@@ -1,4 +1,15 @@
 <?php
+function delete_member($memberID){
+        global $db;
+
+        $query=$db->prepare('DELETE FROM member
+
+        WHERE member_id = :memberID');
+
+        $query->bindValue(':memberID',$memberID,PDO::PARAM_INT);
+
+        $query->execute();
+}
 
 function delete_act($actID){
 	global $db;

@@ -1,4 +1,17 @@
 <?php
+
+function get_members(){
+     global $db; 
+
+    $req = $db->prepare('SELECT member_id, member_username, member_email, member_picture, member_rank, member_signinDate FROM member ORDER BY member_username');
+
+    $req->execute();
+
+    $members = $req->fetchAll();
+
+    return $members;
+}
+
 function get_sections()
 
 {

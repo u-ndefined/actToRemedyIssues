@@ -53,7 +53,7 @@ if(!empty($_POST['username'])){
 	}
 
 
-	if (strlen($username) < 3 || strlen($username) > 15)
+	if (strlen($username) < $config['usernameMinLength'] || strlen($username) > $config['usernameMaxLength'])
 
 	{
 

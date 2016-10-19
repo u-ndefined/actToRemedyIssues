@@ -63,6 +63,12 @@ if(isset($_GET['page'])){
 			require_once("view/first_html.php");
 			require_once('view/mailbox.php');
 			break;
+
+		case 'admin':
+			require_once('controller/admin.php');
+			require_once("view/first_html.php");
+			require_once('view/admin.php');
+			break;
 		
 		default:
 			require_once('controller/index.php');
