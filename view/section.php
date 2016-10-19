@@ -14,7 +14,7 @@ if(isset($issues)){
 					<p class="issue_title"><?php echo $issue['issue_title'];?></p>
 					<p class="issue_content"><?php echo $issue['issue_content'];?></p>
 					<?php
-				if($id == $issue['issue_authorID']){
+				if($id == $issue['issue_authorID'] || checkAuthorisation(MODERATOR)){
 				?>
 					<form class="form_modifyButton_issue" method="post" action="ari.php?page=modify&amp;s=<?php echo $issue['issue_sectionID'];?>&amp;i=<?php echo $issue['issue_id'];?>" enctype="multipart/form-data">
 						<input class="modifyButton modifyIssue" type="submit" name="modifyIssue" value="modifier" />
@@ -39,7 +39,7 @@ if(isset($issues)){
 						<p class="remedy_title"><?php echo $remedy['remedy_title'];?></p>
 						<p class="remedy_content"><?php echo $remedy['remedy_content'];?></p>
 						<?php
-					if($id == $issue['issue_authorID']){
+					if($id == $issue['issue_authorID'] || checkAuthorisation(MODERATOR)){
 					?>
 						<form class="form_modifyButton_remedy" method="post" action="ari.php?page=modify&amp;s=<?php echo $issue['issue_sectionID'];?>&amp;i=<?php echo $issue['issue_id'];?>&amp;r=<?php echo $remedy['remedy_id'];?>" enctype="multipart/form-data">
 							<input class="modifyButton modifyRemedy" type="submit" name="modifyRemedy" value="modifier" />
@@ -65,7 +65,7 @@ if(isset($issues)){
 							<p class="act_title"><?php echo $act['act_title'];?></p>
 							<p class="act_content"><?php echo $act['act_content'];?></p>
 							<?php
-						if($id == $issue['issue_authorID']){
+						if($id == $issue['issue_authorID'] || checkAuthorisation(MODERATOR)){
 						?>
 							<form class="form_modifyButton_act" method="post" action="ari.php?page=modify&amp;s=<?php echo $issue['issue_sectionID'];?>&amp;i=<?php echo $issue['issue_id'];?>&amp;r=<?php echo $remedy['remedy_id'];?>&amp;a=<?php echo $act['act_id'];?>" enctype="multipart/form-data">
 								<input class="modifyButton modifyAct" type="submit" name="modifyAct" value="modifier" />

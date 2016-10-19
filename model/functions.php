@@ -36,7 +36,7 @@ function move_avatar($avatar)
 
 }
 
-function truncate($string,$length=100,$append="&hellip;") {
+function truncate($string, $length=100, $append="&hellip;") {
   $string = trim($string);
 
   if(strlen($string) > $length) {
@@ -46,4 +46,14 @@ function truncate($string,$length=100,$append="&hellip;") {
   }
 
   return $string;
+}
+
+function checkAuthorisation($authorisation_required)
+
+{
+
+$level=(isset($_SESSION['level']))?$_SESSION['level']:1;
+
+return ($authorisation_required <= intval($level));
+
 }

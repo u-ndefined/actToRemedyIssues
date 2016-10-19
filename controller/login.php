@@ -37,6 +37,9 @@ else {
 	$member = get_memberByName($_POST['username']); //recuperation des infos en fonction de l'username
 
 	if ($member['member_password'] == md5($_POST['password'])){ // Acces OK !
+
+		if($member['member_rank'] == 0) error(ERR_BAN);
+		else {
 		$_SESSION['username'] = $member['member_username'];
 		$_SESSION['level'] = $member['member_rank'];
 		$_SESSION['id'] = $member['member_id'];
@@ -58,6 +61,7 @@ else {
  	// 	else echo '<script> window.location.assign("ari.php"); </script>';
  		if($redirect) header("Location:".$redirect);
  		else header("Location:ari.php");
+ 	}
 	}
 	else { // Acces pas OK !
 		$message = '<p>Une erreur s\'est produite 
