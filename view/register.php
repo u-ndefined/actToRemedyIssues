@@ -1,6 +1,6 @@
 <div id="page_content">	
 <?php
-if($i>0){ //si déjà post, afficher erreurs
+if(isset($i) && $i>0){ //si déjà post, afficher erreurs
 	echo'<h1>Inscription échouée (t\'es nul)</h1>';
 
     	echo'<p>Une ou plusieurs erreurs se sont produites pendant l incription</p>';

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:8889
--- Généré le :  Mar 18 Octobre 2016 à 23:18
+-- Généré le :  Jeu 20 Octobre 2016 à 18:36
 -- Version du serveur :  5.6.28
 -- Version de PHP :  7.0.10
 
@@ -40,11 +40,51 @@ INSERT INTO `act` (`act_id`, `act_remedyID`, `act_title`, `act_content`, `act_au
 (1, 1, 'Donnez moi votre argent', 'Envoyez moi vos dons. J’achèterai des poulets rôtis et je les enverrai en Afrique. Faites moi confiance!', 0, '2016-10-06 23:33:00', '0000-00-00 00:00:00', 1, 2),
 (2, 3, 'Du poivre dans l\'océan', 'A chaque fois que vous faites les courses achetez du poivre en plus et versez le dans l\'océan. A force ça arrivera jusqu\'en Afrique.', 0, '2016-10-06 23:59:00', '0000-00-00 00:00:00', 500, 3),
 (3, 4, 'Des graines', 'Envoyez leur des graines comme ça il feront pousser leurs propres citrouilles! (à moins qu\'ils ne les mangent avant :/)', 0, '2016-10-11 00:00:00', '0000-00-00 00:00:00', 42, 2),
-(4, 1, 'Vous avez pas confiance?', 'Bon voici un lien pour faire une bonne action sans m\'envoyer votre argent: http://www.goodeed.com/', 0, '2016-10-12 00:00:00', '0000-00-00 00:00:00', 23, 2),
+(4, 1, 'Vous avez pas confiance?', 'Bon voici un lien pour faire une bonne action sans m\'envoyer votre argent: http://www.goodeed.com/', 0, '2016-10-12 00:00:00', '2016-10-20 13:56:58', 23, 2),
 (21, 19, 'La marche à suivre', '- Retirer tous les bijoux (bagues, chaînes, bracelets...) du membre piqué car celui-ci va enfler (et après ce sera trop tard).\r\n- Si l\'aiguillon est resté dans la plaie il faut le faire sortir en faisant levier avec quelque chose de fin, sans appuyer dessus.\r\n- Munissez vous d\'une source de chaleur: cigarette, bout de bois incandescent, allume cigare, briquet, sèche-cheveux... et approchez le de la piqure (assez près pour ressentir la chaleur sans que ça ne brûle) pendant quelques secondes.\r\n- Puis désinfectez.', 14, '2016-10-14 19:25:14', '0000-00-00 00:00:00', 0, 0),
 (29, 3, '[b]aze[/b]', '[i]azeeaz[/i] sqdv https://frenchmac.com/mac/utiliser-votre-mac-comme-reveil-2/', 14, '2016-10-16 23:19:49', '0000-00-00 00:00:00', 0, 0),
 (30, 4, 'citrouilles', 'ffqdsfq[b]fsqfds[/b]', 14, '2016-10-17 10:45:17', '0000-00-00 00:00:00', 0, 0),
 (32, 24, '3', '3', 14, '2016-10-17 16:56:47', '2016-10-17 17:01:36', 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `config`
+--
+
+CREATE TABLE `config` (
+  `config_name` varchar(255) NOT NULL,
+  `config_value` varchar(511) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `config`
+--
+
+INSERT INTO `config` (`config_name`, `config_value`) VALUES
+('usernameMaxLength', '20'),
+('usernameMinLength', '3');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `intro`
+--
+
+CREATE TABLE `intro` (
+  `intro_id` int(11) NOT NULL,
+  `intro_title` varchar(255) NOT NULL,
+  `intro_content` text NOT NULL,
+  `intro_authorID` int(11) NOT NULL,
+  `intro_postDate` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `intro`
+--
+
+INSERT INTO `intro` (`intro_id`, `intro_title`, `intro_content`, `intro_authorID`, `intro_postDate`) VALUES
+(5, 'ceci est une intro', '1 trop 1 trop 1 trop 1 trop 1 trop 1 trop 1 trop 1 trop 1 trop 1 trop 1 trop 1 trop ', 14, '2016-10-20 18:34:50');
 
 -- --------------------------------------------------------
 
@@ -97,10 +137,32 @@ CREATE TABLE `member` (
 INSERT INTO `member` (`member_id`, `member_username`, `member_password`, `member_email`, `member_picture`, `member_rank`, `member_signinDate`) VALUES
 (8, 'Pumpkinwaffle', 'c8e94539b3ed26a565b7c450a41d2e53', 'maxime.spraypaint@gmail.com', '0', 2, '2016-10-12 17:21:07'),
 (11, 'Yachar', '44598f07c9ab3ecafe93af2b0c17fc1c', 'yachar.vl@gmail.com', '0', 2, '2016-10-12 20:45:18'),
-(14, 'undefined', '8c0eb3282a86e7be6563f92aa5eb0f9a', 'paul.gaston@me.com', '1476225822.png', 2, '1942-04-02 04:42:42'),
+(14, 'undefined', '8c0eb3282a86e7be6563f92aa5eb0f9a', 'paul.gaston@me.com', '1476225822.png', 4, '1942-04-02 04:42:42'),
 (15, 'wood', '0', 'polwood@hotmail.fr', '1476269259.png', 2, '2016-10-12 12:47:39'),
 (16, 'rorolabricot', 'eebd5093134824ef3fb27590de733c55', 'roxane.rodiac@hotmail.fr', '', 2, '2016-10-12 14:40:27'),
 (17, 'sachaamm', '721a9b52bfceacc503c056e3b9b93cfa', 'sachaamm@gmail.com', '', 2, '2016-10-12 15:22:05');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `news`
+--
+
+CREATE TABLE `news` (
+  `news_id` int(11) NOT NULL,
+  `news_title` varchar(255) NOT NULL,
+  `news_content` text NOT NULL,
+  `news_authorID` int(11) NOT NULL,
+  `news_postDate` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `news`
+--
+
+INSERT INTO `news` (`news_id`, `news_title`, `news_content`, `news_authorID`, `news_postDate`) VALUES
+(5, 'ceci est une news', ' newsvv news news news news news news news news news news news newsvv', 14, '2016-10-20 18:34:26'),
+(6, 'une news récente!', 'first!!!', 14, '2016-10-20 18:35:09');
 
 -- --------------------------------------------------------
 
@@ -150,7 +212,7 @@ CREATE TABLE `remedy` (
 
 INSERT INTO `remedy` (`remedy_id`, `remedy_issueID`, `remedy_title`, `remedy_content`, `remedy_sources`, `remedy_authorID`, `remedy_postDate`, `remedy_modifyDate`, `remedy_relevence`) VALUES
 (1, 2, 'Le rôti pardi!', 'J\'aime bien le poulet rôti, et c\'est vrai que ça calle bien. On pourrait leur en envoyer!', '', 'undefined', '2016-10-06 23:00:00', '0000-00-00 00:00:00', 15),
-(3, 3, 'Poivrez là!', 'Si l\'eau de mer est trop salé il suffit de la poivrer et elle sera buvable.', '', 'undefined', '2016-10-06 23:00:00', '0000-00-00 00:00:00', 50),
+(3, 3, 'Poivrez là!', 'Si l\'eau de mer est trop salé il suffit de la poivrer et elle sera buvable.', '', 'undefined', '2016-10-06 23:00:00', '2016-10-19 10:58:52', 50),
 (4, 2, 'pourquoi pas la tarte à la citrouille?', 'c\'est meilleur la tarte à la citrouille et en plus c\'est végétarien. nah!', '', 'waffleOfPumpkin', '2016-10-07 15:00:00', '0000-00-00 00:00:00', 1),
 (19, 19, 'Chauffer le venin', 'Le venin de la plupart des insectes qui nous piquent l\'été (guêpes, abeilles, taon...) est thermolabile, la chaleur l\'inactive.\r\n\r\nhttps://www.youtube.com/watch?v=9KHUHaaMIBw', 'https://www.youtube.com/watch?v=9KHUHaaMIBw', '14', '2016-10-14 19:25:14', '2016-10-18 13:36:48', 0),
 (23, 22, 'KPJP', 'K', '', '16', '2016-10-16 15:42:56', '0000-00-00 00:00:00', 0);
@@ -191,6 +253,12 @@ ALTER TABLE `act`
   ADD PRIMARY KEY (`act_id`);
 
 --
+-- Index pour la table `intro`
+--
+ALTER TABLE `intro`
+  ADD PRIMARY KEY (`intro_id`);
+
+--
 -- Index pour la table `issue`
 --
 ALTER TABLE `issue`
@@ -201,6 +269,12 @@ ALTER TABLE `issue`
 --
 ALTER TABLE `member`
   ADD PRIMARY KEY (`member_id`);
+
+--
+-- Index pour la table `news`
+--
+ALTER TABLE `news`
+  ADD PRIMARY KEY (`news_id`);
 
 --
 -- Index pour la table `privatemessage`
@@ -229,27 +303,37 @@ ALTER TABLE `section`
 -- AUTO_INCREMENT pour la table `act`
 --
 ALTER TABLE `act`
-  MODIFY `act_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `act_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+--
+-- AUTO_INCREMENT pour la table `intro`
+--
+ALTER TABLE `intro`
+  MODIFY `intro_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT pour la table `issue`
 --
 ALTER TABLE `issue`
-  MODIFY `issue_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `issue_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT pour la table `member`
 --
 ALTER TABLE `member`
-  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+--
+-- AUTO_INCREMENT pour la table `news`
+--
+ALTER TABLE `news`
+  MODIFY `news_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT pour la table `privatemessage`
 --
 ALTER TABLE `privatemessage`
-  MODIFY `PM_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `PM_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pour la table `remedy`
 --
 ALTER TABLE `remedy`
-  MODIFY `remedy_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `remedy_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT pour la table `section`
 --

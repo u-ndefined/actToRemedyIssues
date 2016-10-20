@@ -18,6 +18,8 @@ require_once("model/functions.php");
 
 require_once("model/constants.php");
 
+require_once("model/config.php");
+
 require_once('model/get_functions.php');
 
 require_once('model/set_functions.php');

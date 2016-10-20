@@ -34,6 +34,7 @@ if(isset($_POST['type'])){
 
 	$title_error = null;
 	$content_error = null;
+	$ID_error = null;
 	$i = 0;
 	$date = date('Y-m-d H:i:s');
 	switch ($type) {
@@ -48,8 +49,13 @@ if(isset($_POST['type'])){
 				$content_error = 'Il manque du contenu';
 			}
 			else $content = htmlspecialchars($_POST['actContent']);
+			if(empty($_POST['act_remedyID'])){
+				$i++;
+				$ID_error = 'Il manque un ID';
+			}
+			else $new_remedyID = (int) $_POST['act_remedyID'];
 			if($i == 0){
-				update_act($act['act_id'], $title, $content, $date);
+				update_act($act['act_id'], $title, $content, $date, $new_remedyID);
 				header('Location:ari.php?page=section&s='.$sectionID);
 			}
 			break;
@@ -66,8 +72,13 @@ if(isset($_POST['type'])){
 			}
 			else $content = htmlspecialchars($_POST['remedyContent']);
 			$sources = (empty($_POST['remedySources'])?'':htmlspecialchars($_POST['remedySources']));
+			if(empty($_POST['remedy_issueID'])){
+				$i++;
+				$ID_error = 'Il manque un ID';
+			}
+			else $new_issueID = (int) $_POST['remedy_issueID'];
 			if($i == 0){
-				update_remedy($remedy['remedy_id'], $title, $content, $sources, $date);
+				update_remedy($remedy['remedy_id'], $title, $content, $sources, $date, $new_issueID);
 				header('Location:ari.php?page=section&s='.$sectionID);
 			}
 			break;
@@ -84,8 +95,13 @@ if(isset($_POST['type'])){
 			}
 			else $content = htmlspecialchars($_POST['issueContent']);
 			$sources = (empty($_POST['issueSources'])?'':htmlspecialchars($_POST['issueSources']));
+			if(empty($_POST['issue_sectionID'])){
+				$i++;
+				$ID_error = 'Il manque un ID';
+			}
+			else $new_sectionID = (int) $_POST['issue_sectionID'];
 			if($i == 0){
-				update_issue($issue['issue_id'], $title, $content, $sources, $date);
+				update_issue($issue['issue_id'], $title, $content, $sources, $date, $new_sectionID);
 				header('Location:ari.php?page=section&s='.$sectionID);
 			}
 			break;

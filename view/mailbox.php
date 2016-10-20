@@ -39,7 +39,7 @@
 					<label for='title'>Titre: </label>
 					<input name="title" type="text" value="<?php if($previousPM != null) echo 'Re: '.$previousPM['PM_title'];?>"/>
 					<label for='recipient'>Message: </label>
-					<textarea cols="80" rows="8" name="content"><?php echo '[i]message précédent: '.$previousPM['PM_content'].'[/i]';?></textarea>
+					<textarea cols="80" rows="8" name="content"><?php if($previousPM != null) echo '[i]message précédent: '.$previousPM['PM_content'].'[/i]';?></textarea>
 					<input type="submit" name="submit" value="envoyer" />
 				</fieldset>
 			</form>

@@ -32,7 +32,7 @@ if (isset ($_GET['s'])){
 	}
 }
 
-if($id==$authorID){
+if($id==$authorID || checkAuthorisation(MODERATOR)){
 	if(isset($_POST['type'])){
 		$type=$_POST['type'];
 		switch ($type) {

@@ -14,4 +14,8 @@ define('ERR_IS_NOT_CO','Vous n\'êtes pas connecté');
 
 define('ERR_WRONG_USER','Ceci ne vous est pas adressé, vous n\'êtes pas le bon utilisateur');
 
+define('ERR_BAN', 'Vous avez été banni, impossible de vous connecter');
+
+define('ERR_IS_NOT_ADMIN','Cette page est réservée aux administrateurs');
+
 ?>
