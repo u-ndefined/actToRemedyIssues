@@ -1,4 +1,29 @@
 <?php
+
+function delete_news($newsID){
+        global $db;
+
+        $query=$db->prepare('DELETE FROM news
+
+        WHERE news_id = :newsID');
+
+        $query->bindValue(':newsID',$newsID,PDO::PARAM_INT);
+
+        $query->execute();
+}
+
+function delete_intro($introID){
+        global $db;
+
+        $query=$db->prepare('DELETE FROM intro
+
+        WHERE intro_id = :introID');
+
+        $query->bindValue(':introID',$introID,PDO::PARAM_INT);
+
+        $query->execute();
+}
+
 function delete_member($memberID){
         global $db;
 

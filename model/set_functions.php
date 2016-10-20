@@ -1,5 +1,41 @@
 <?php
 
+function set_intro($title, $content, $authorID, $postDate){
+    global $db;
+
+    $query=$db->prepare('INSERT INTO intro (intro_title, intro_content, intro_authorID, intro_postDate)
+
+        VALUES (:title, :content, :authorID, :postDate)');
+
+        $query->bindValue(':title', $title, PDO::PARAM_STR);
+
+        $query->bindValue(':content', $content, PDO::PARAM_STR);
+
+        $query->bindValue(':authorID', $authorID, PDO::PARAM_STR);
+
+        $query->bindValue(':postDate', $postDate, PDO::PARAM_INT);
+
+        $query->execute();
+}
+
+function set_news($title, $content, $authorID, $postDate){
+    global $db;
+
+    $query=$db->prepare('INSERT INTO news (news_title, news_content, news_authorID, news_postDate)
+
+        VALUES (:title, :content, :authorID, :postDate)');
+
+        $query->bindValue(':title', $title, PDO::PARAM_STR);
+
+        $query->bindValue(':content', $content, PDO::PARAM_STR);
+
+        $query->bindValue(':authorID', $authorID, PDO::PARAM_STR);
+
+        $query->bindValue(':postDate', $postDate, PDO::PARAM_INT);
+
+        $query->execute();
+}
+
 function set_PM($senderID, $recipientID, $title, $content, $sendDate){
     global $db;
 

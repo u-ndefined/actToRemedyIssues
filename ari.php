@@ -6,10 +6,11 @@ require_once("controller/sql_login.php");
 require_once("controller/first_php.php");
 // if (!isset($_GET['page']) OR $_GET['page'] == 'index') require_once('controller/index.php');
 
-if(isset($_GET['page'])){
-	$titre = htmlspecialchars($_GET['page']);
+
+	$titre = (isset($_GET['page'])?htmlspecialchars($_GET['page']):'');
 
 	switch ($titre) {
+
 		case 'login':
 			require_once('controller/login.php');
 			require_once("view/first_html.php");
@@ -70,16 +71,15 @@ if(isset($_GET['page'])){
 			require_once('view/admin.php');
 			break;
 		
+		case 'modify_index':
+			require_once('controller/modify_index.php');
+			require_once("view/first_html.php");
+			require_once('view/modify_index.php');
+			break;
+
 		default:
 			require_once('controller/index.php');
 			require_once("view/first_html.php");
 			require_once('view/index.php');
 			break;
 	}
-}
-else {
-	require_once('controller/index.php');
-	$titre = 'index';
-	require_once("view/first_html.php");
-	require_once('view/index.php');
-}

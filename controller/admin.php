@@ -3,8 +3,14 @@
 // if ($id!=4) error(ERR_IS_NOT_ADMIN);
 
 if(checkAuthorisation(ADMIN)){
-if(isset($_GET['query'])){
-	$query = htmlspecialchars($_GET['query']);
+	$query = (isset($_GET['query'])?htmlspecialchars($_GET['query']):'');
+	$username_error1 = null;
+	$username_error2 = null;
+	$password_error = null;
+	$rank_error = null;
+	$title_error = null;
+	$content_error = null;
+	$date = date('Y-m-d H:i:s');
 	switch ($query) {
 		case 'members':
 				$action=(isset($_GET['action'])?htmlspecialchars($_GET['action']):'');
@@ -13,10 +19,6 @@ if(isset($_GET['query'])){
 				switch ($action) {
 					case 'edit':
 						if(isset($_POST['submit'])){
-							$username_error1 = null;
-							$username_error2 = null;
-							$password_error = null;
-							$rank_error = null;
 							$i = 0;
 							$username= htmlspecialchars($_POST['username']);
 							$password = (!empty($_POST['password'])?md5($_POST['password']):$member['member_password']);
@@ -79,14 +81,70 @@ if(isset($_GET['query'])){
 			}
 			break;
 
+		case 'news':
+			// $news = get_news();
+			// foreach ($news as $key => $new) {
+			// 	$news[$key]['news_content'] = replaceCode(htmlspecialchars($new['news_content']));
+			// 	$news[$key]['news_title'] = replaceCode(htmlspecialchars($new['news_title']));
+			// }
+			if(isset($_POST['title'])){
+				$i = 0;
+				if(empty($_POST['title'])){
+					$i++;
+					$title_error = 'Il manque un titre';
+				}
+				else $title = htmlspecialchars($_POST['title']);
+				if(empty($_POST['content'])){
+					$i++;
+					$content_error = 'Il manque du contenu';
+				}
+				else $content = htmlspecialchars($_POST['content']);
+				if($i==0){
+					set_news($title, $content, $id, $date);
+					header("Location:ari.php?page=admin");
+				}
+			}
+			break;
+
+		case 'intro':
+			// $intro = get_intro();
+			// $intro['intro_title'] = replaceCode(htmlspecialchars($intro['title']));
+			// $intro['intro_content'] = replaceCode(htmlspecialchars($intro['title']));
+			if(isset($_POST['title'])){
+				$i = 0;
+				if(empty($_POST['title'])){
+					$i++;
+					$title_error = 'Il manque un titre';
+				}
+				else $title = htmlspecialchars($_POST['title']);
+				if(empty($_POST['content'])){
+					$i++;
+					$content_error = 'Il manque du contenu';
+				}
+				else $content = htmlspecialchars($_POST['content']);
+				if($i==0){
+					set_intro($title, $content, $id, $date);
+					header("Location:ari.php?page=admin");
+				}
+			}
+			break;
+		/*
 		case 'sections':
+			$sections = get_sections();
+			if(isset($_GET['s'])){
+				$sectionID_admin = (int) $_GET['s'];
+				$issues_admin = get_issues($sectionID_admin);
+				// $remedies_admin = get_remedies($sectionID_admin);
+				// $acts_admin = get_issues($sectionID_admin);
+				
+			}
 
 			break;
+		*/
 		
 		default:
 			# code...
 			break;
 	}
-}
 }
 else error(ERR_IS_NOT_ADMIN);

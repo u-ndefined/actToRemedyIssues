@@ -28,6 +28,13 @@ else {
 			<a href="./ari.php?page=profil&amp;action=read&amp;m=<?php echo $id;?>">voir son profil</a>
 			<a href="./ari.php?page=profil&amp;action=write&amp;m=<?php echo $id;?>">modifier</a>
 			<a href="./ari.php?page=mailbox&amp;action=read&amp;query=received">messagerie</a>
+			<?php
+			if (checkAuthorisation(ADMIN)) {
+				?>
+					<a href="./ari.php?page=admin">admin</a>
+				<?php
+			}
+			?>
 		</div>
 	</div>
 	<?php

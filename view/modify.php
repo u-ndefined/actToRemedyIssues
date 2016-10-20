@@ -43,6 +43,14 @@ if(isset($i) && $i>0){
 					</fieldset>
 
 					<fieldset><legend>Votre action</legend>
+					<?php
+					if(checkAuthorisation(ADMIN)) {
+						?>
+						<label for='act_remedyID'>Remedy ID: </label>
+						<input name="act_remedyID" type="text" id="act_remedyID" value="<?php echo $act['act_remedyID'];?>"/>
+						<?php
+					}
+					?>
 					<input type="hidden" id="type" name="type" value="1" />
 					<label for='actTitle'>Titre de l'action: </label>
 					<input onclick="selectTextarea(this.id);" name="actTitle" type="text" id="actTitle" value="<?php echo $act['act_title'];?>"/>
@@ -56,6 +64,14 @@ if(isset($i) && $i>0){
 				?>
 					</fieldset>
 					<fieldset><legend>Votre solution</legend>
+					<?php
+					if(checkAuthorisation(ADMIN)) {
+						?>
+						<label for='remedy_issueID'>Issue ID: </label>
+						<input name="remedy_issueID" type="text" id="remedy_issueID" value="<?php echo $remedy['remedy_issueID'];?>"/>
+						<?php
+					}
+					?>
 					<input type="hidden" id="type" name="type" value="2" />
 					<label for='remedyTitle'>Titre de la solution: </label>
 					<input onclick="selectTextarea(this.id);" name="remedyTitle" type="text" id="remedyTitle" value="<?php echo $remedy['remedy_title'];?>"/>
@@ -72,8 +88,15 @@ if(isset($i) && $i>0){
 			else {
 				?>
 				</fieldset>
-				</fieldset>
 				<fieldset><legend>Votre problème</legend>
+				<?php
+					if(checkAuthorisation(ADMIN)) {
+						?>
+						<label for='issue_sectionID'>Section ID: </label>
+						<input name="issue_sectionID" type="text" id="issue_sectionID" value="<?php echo $issue['issue_sectionID'];?>"/>
+						<?php
+					}
+				?>
 				<input type="hidden" id="type" name="type" value="3" />
 				<label for='issueTitle'>Titre du problème: </label>
 				<input onclick="selectTextarea(this.id);" name="issueTitle" type="text" id="issueTitle" value="<?php echo $issue['issue_title'];?>" />
@@ -83,7 +106,7 @@ if(isset($i) && $i>0){
 				<br />
 				<label for='issueSources'>Sources: </label>
 				<textarea onclick="selectTextarea(this.id);" cols="80" rows="8" id="issueSources" name="issueSources"><?php echo $issue['issue_sources'];?></textarea>
-				<br />
+				</fieldset>
 				<?php
 			}
 		}
