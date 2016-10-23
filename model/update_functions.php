@@ -1,4 +1,17 @@
 <?php
+function update_comment($commentID, $content){
+    global $db;
+
+    $query=$db->prepare('UPDATE comment SET comment_content = :content WHERE comment_id = :commentID');
+
+                $query->bindValue(':content',$content,PDO::PARAM_INT);
+
+                $query->bindValue(':commentID',$commentID,PDO::PARAM_INT);
+
+                $query->execute();
+
+}
+
 function update_news($newsID, $title, $content){
 
     global $db;

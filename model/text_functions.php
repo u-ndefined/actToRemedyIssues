@@ -11,7 +11,7 @@ function replaceCode($text){
 
 	//lien
 
-	$text = preg_replace('`\[url\](.+)\[/url\]`isU', '<a href="$0">$0</a>', $text);
+	$text = preg_replace('`\[url\](.+)\[/url\]`isU', '<a href="$1">$1</a>', $text);
 
 	//youtube
 
@@ -47,7 +47,7 @@ function ytID_from_url($url){
 	}
 	else return false;
 
-	$replacement = '<iframe width="300" height="169" src=https://www.youtube.com/embed/'.$values.' frameborder="0" allowfullscreen></iframe>';
+	$replacement = '<iframe width="'.$configs['ytPlayerWidth'].'" height="'.$configs['ytPlayerHeight'].'" src=https://www.youtube.com/embed/'.$values.' frameborder="0" allowfullscreen></iframe>';
 
 	return $replacement;
 }

@@ -1,6 +1,41 @@
 <?php
+function get_comments($subjectType, $subjectID){
+    global $db; 
+
+    $req = $db->prepare('SELECT comment_id, comment_content, comment_authorID, comment_postDate, comment_vote, member_username as comment_author
+        FROM comment
+        LEFT JOIN member ON member_id = comment_authorID
+        WHERE comment_subjectType = :subjectType AND comment_subjectID = :subjectID');
+
+    $req->bindParam(':subjectType', $subjectType, PDO::PARAM_INT);
+
+    $req->bindParam(':subjectID', $subjectID, PDO::PARAM_INT);
+
+    $req->execute();
+
+    $comments = $req->fetchAll();
+
+    return $comments;
+}
+
+function get_comment($commentID){
+    global $db; 
+
+    $req = $db->prepare('SELECT comment_id, comment_content, comment_authorID
+        FROM comment WHERE comment_id = :commentID');
+
+    $req->bindParam(':commentID', $commentID, PDO::PARAM_INT);
+
+    $req->execute();
+
+    $comment = $req->fetch();
+
+    return $comment;
+
+}
+
 function get_new($newsID){
-     global $db; 
+    global $db; 
 
     $req = $db->prepare('SELECT news_id, news_title, news_content, news_authorID, news_postDate FROM news WHERE news_id = :newsID');
 
@@ -14,7 +49,7 @@ function get_new($newsID){
 }
 
 function get_intro(){
-     global $db; 
+    global $db; 
 
     // $req = $db->prepare('SELECT MAX(intro_id) intro_id, intro_title, intro_content, intro_authorID, intro_postDate FROM intro');
 
@@ -36,7 +71,7 @@ function get_intro(){
 }
 
 function get_news(){
-     global $db; 
+    global $db; 
 
     $req = $db->prepare('SELECT news_id, news_title, news_content, news_authorID, news_postDate FROM news ORDER BY news_id DESC');
 
@@ -49,7 +84,7 @@ function get_news(){
 
 
 function get_members(){
-     global $db; 
+    global $db; 
 
     $req = $db->prepare('SELECT member_id, member_username, member_email, member_picture, member_rank, member_signinDate FROM member ORDER BY member_username');
 

@@ -50,6 +50,11 @@ if(isset($i) && $i>0){
 						<input name="act_remedyID" type="text" id="act_remedyID" value="<?php echo $act['act_remedyID'];?>"/>
 						<?php
 					}
+					else{
+						?>
+						<input name="act_remedyID" type="hidden" id="act_remedyID" value="<?php echo $act['act_remedyID'];?>"/>
+						<?php
+					}
 					?>
 					<input type="hidden" id="type" name="type" value="1" />
 					<label for='actTitle'>Titre de l'action: </label>
@@ -69,6 +74,11 @@ if(isset($i) && $i>0){
 						?>
 						<label for='remedy_issueID'>Issue ID: </label>
 						<input name="remedy_issueID" type="text" id="remedy_issueID" value="<?php echo $remedy['remedy_issueID'];?>"/>
+						<?php
+					}
+					else{
+						?>
+						<input name="remedy_issueID" type="hidden" id="remedy_issueID" value="<?php echo $remedy['remedy_issueID'];?>"/>
 						<?php
 					}
 					?>
@@ -94,6 +104,11 @@ if(isset($i) && $i>0){
 						?>
 						<label for='issue_sectionID'>Section ID: </label>
 						<input name="issue_sectionID" type="text" id="issue_sectionID" value="<?php echo $issue['issue_sectionID'];?>"/>
+						<?php
+					}
+					else{
+						?>
+						<input name="issue_sectionID" type="hidden" id="issue_sectionID" value="<?php echo $issue['issue_sectionID'];?>"/>
 						<?php
 					}
 				?>

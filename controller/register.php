@@ -108,11 +108,11 @@ if(!empty($_POST['username'])){
 
         //On définit les variables :
 
-        $maxsize = 10024; //Poid de l'image
+        $maxsize = $configs['pictureMaxSize']; //Poid de l'image
 
-        $maxwidth = 100; //Largeur de l'image
+        $maxwidth = $configs['pictureWidth'];//Largeur de l'image
 
-        $maxheight = 100; //Longueur de l'image
+        $maxheight = $configs['pictureHeight']; //Longueur de l'image
 
         $extensions_valides = array( 'jpg' , 'jpeg' , 'gif' , 'png', 'bmp' ); //Liste des extensions valides
 

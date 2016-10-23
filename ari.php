@@ -77,6 +77,12 @@ require_once("controller/first_php.php");
 			require_once('view/modify_index.php');
 			break;
 
+		case 'comment':
+			require_once('controller/comment.php');
+			require_once("view/first_html.php");
+			require_once('view/comment.php');
+			break;
+
 		default:
 			require_once('controller/index.php');
 			require_once("view/first_html.php");
