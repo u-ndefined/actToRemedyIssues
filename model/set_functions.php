@@ -1,10 +1,11 @@
 <?php
+
 function set_comment($content, $authorID, $postDate, $subjectType, $subjectID){
     global $db;
 
-    $query=$db->prepare('INSERT INTO comment (comment_content, comment_authorID, comment_postDate, comment_subjectType, $comment_subjectID, comment_vote)
+    $vote = '0';
 
-        VALUES (:content, :authorID, :postDate, :subjectType, :subjectID, :vote)');
+    $query=$db->prepare('INSERT INTO comment (comment_content, comment_authorID, comment_postDate, comment_subjectType, comment_subjectID , comment_vote) VALUES (:content, :authorID, :postDate, :subjectType, :subjectID, :vote)');
 
         $query->bindValue(':content', $content, PDO::PARAM_STR);
 
@@ -16,9 +17,8 @@ function set_comment($content, $authorID, $postDate, $subjectType, $subjectID){
 
         $query->bindValue(':subjectID', $subjectID, PDO::PARAM_INT);
 
-        $query->bindValue(':vote', '0', PDO::PARAM_INT);
+        $query->bindValue(':vote', $vote, PDO::PARAM_INT);
 
-        // echo $content.' '.$authorID.' '.$postDate.' '.$subjectType.' '.$subjectID;
         $query->execute();
 
 }
@@ -77,7 +77,6 @@ function set_PM($senderID, $recipientID, $title, $content, $sendDate){
         $query->bindValue(':sendDate', $sendDate, PDO::PARAM_INT);
 
         $query->bindValue(':read', '0', PDO::PARAM_INT);
-
 
         $query->execute();
 }

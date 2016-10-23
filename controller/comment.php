@@ -26,7 +26,7 @@ switch ($action) {
 		if($comment['comment_authorID'] != $id && !checkAuthorisation(MODERATOR)) error(ERR_WRONG_USER);
 		if(isset($_POST['confirm'])){
 			delete_comment($comID);
-			header('Location:ari.php?page=comment&type='.$type.'&subjectID='.$subjectID);
+			header('Location:ari.php?page=comment&action=read&type='.$type.'&subjectID='.$subjectID);
 		}
 	}
 	break;
@@ -46,19 +46,9 @@ switch ($action) {
 			$content_error = 'Il manque du contenu dans votre commentaire';
 		}
 		else $content = htmlspecialchars($_POST['content']);
-		echo $comID;
-		
-		switch ($comID) {
-			case empty($comID):
-			set_comment($content, $id, $date, $type, $subjectID);
-			echo '<br /><br /><br /><br /><br /><br />set'.$content;
-			break;
 
-			default:
-			update_comment($comID, $content);
-			echo '<br /><br /><br /><br /><br /><br />update'.$content;
-			break;
-		}
+		if($comID == '') set_comment($content, $id, $date, $type, $subjectID);
+		else update_comment($comID, $content);	
 		header('Location:ari.php?page=comment&action=read&type='.$type.'&subjectID='.$subjectID);
 	}
 	break;

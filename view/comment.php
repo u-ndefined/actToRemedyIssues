@@ -22,11 +22,9 @@ else{
 			<?php
 			if($com['comment_authorID'] == $id || checkAuthorisation(MODERATOR)){
 				?>
-				<!-- <a href="<php echo 'ari.php?page=comment&action=modify&$type='.$type.'&subjectID='.$subjectID.'&comID='.$com['comment_id'];?>">modifier</a> -->
 				<a href="ari.php?page=comment&amp;action=modify&amp;type=<?php echo $type;?>&amp;subjectID=<?php echo $subjectID;?>&amp;comID=<?php echo $com['comment_id'];?>">modifier</a>
 				
 				<a href="ari.php?page=comment&amp;action=delete&amp;type=<?php echo $type;?>&amp;subjectID=<?php echo $subjectID;?>&amp;comID=<?php echo $com['comment_id'];?>">supprimer</a>
-				<!-- <a href="<php echo 'ari.php?page=comment&amp;action=delete&amp;$type='.$type.'&amp;subjectID='.$subjectID.'&amp;comID='.$com['comment_id'];?>">supprimer</a> -->
 				<?php
 			}
 		}
@@ -44,7 +42,7 @@ if(isset($i) && $i>0){
     	echo'<p>'.$content_error.'</p>';
 }
 ?>
-	<form method="post" action="ari.php?page=comment&amp;action=modify&amp;type=<?php echo $type;?>&amp;subjectID=<?php echo $subjectID;?>" enctype="multipart/form-data">
+	<form method="post" action="ari.php?page=comment&amp;action=modify&amp;type=<?php echo $type;?>&amp;subjectID=<?php echo $subjectID;?>&amp;comID=<?php echo $comID;?>" enctype="multipart/form-data">
 		<fieldset><legend>Commentaire</legend>
 			<textarea name="content"><?php echo $comment['comment_content']?></textarea>
 			<input type="submit" name="submit" value="submit" />
