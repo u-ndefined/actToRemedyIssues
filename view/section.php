@@ -25,6 +25,7 @@ if(isset($issues)){
 				<?php
 				}
 				?>
+				<a href="ari.php?page=comment&amp;action=read&amp;type=issue&amp;subjectID=<?php echo $issue['issue_id'];?>">commentaires</a>
 				</div>
 				
 				
@@ -50,6 +51,7 @@ if(isset($issues)){
 					<?php
 					}
 					?>
+					<a href="ari.php?page=comment&amp;action=read&amp;type=remedy&amp;subjectID=<?php echo $remedy['remedy_id'];?>">commentaires</a>
 					</div>
 
 					
@@ -76,6 +78,7 @@ if(isset($issues)){
 						<?php
 						}
 						?>
+						<a href="ari.php?page=comment&amp;action=read&amp;type=act&amp;subjectID=<?php echo $act['act_id'];?>">commentaires</a>
 						</div>
 
 						

@@ -1,4 +1,15 @@
 <?php
+function delete_comment($commentID){
+        global $db;
+
+        $query=$db->prepare('DELETE FROM comment
+
+        WHERE comment_id = :commentID');
+
+        $query->bindValue(':commentID',$commentID,PDO::PARAM_INT);
+
+        $query->execute();
+}
 
 function delete_news($newsID){
         global $db;
