@@ -1,4 +1,45 @@
 <?php
+function update_vote($authorID, $type, $subjectID, $value){
+     global $db;
+
+     $req=$db->prepare('UPDATE vote SET vote_value =  (vote_value + :value) WHERE vote_subjectType = :type AND vote_subjectID = :subjectID AND vote_authorID = :authorID');
+
+    $req->bindValue(':authorID',$authorID,PDO::PARAM_INT);
+
+        $req->bindValue(':type', $type, PDO::PARAM_STR);
+
+        $req->bindValue(':subjectID',$subjectID,PDO::PARAM_INT);
+
+        $req->bindValue(':value', $value, PDO::PARAM_INT);
+
+        $req->execute();
+
+}
+// function update_vote($type, $subjectID, $vote){
+//      global $db;
+
+//      switch ($type) {
+//     case 'issue':
+//         $query=$db->prepare('UPDATE issue SET issue_urgency = (issue_urgency + :vote) WHERE issue_id = :subjectID');
+//     // $query=$db->prepare('UPDATE issue SET issue_urgency = :vote WHERE issue_id = :subjectID');
+//         break;
+
+//     case 'remedy':
+//         $query=$db->prepare('UPDATE remedy SET remedy_relevence = (remedy_relevence + :vote) WHERE remedy_id = :subjectID');
+//         break;
+
+//     case 'act':
+//         $query=$db->prepare('UPDATE act SET act_feasibility = (act_feasibility + :vote) WHERE act_id = :subjectID');
+//         break;
+//     }
+
+//                 $query->bindValue(':subjectID',$subjectID,PDO::PARAM_INT);
+
+//                 $query->bindValue(':vote',$vote,PDO::PARAM_INT);
+
+//                 $query->execute();
+
+// }
 function update_comment($commentID, $content){
     global $db;
 

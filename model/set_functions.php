@@ -1,5 +1,25 @@
 <?php
 
+function set_vote($authorID, $type, $subjectID, $value){
+    global $db;
+
+    $vote = '0';
+
+    $query=$db->prepare('INSERT INTO vote (vote_authorID, vote_subjectType, vote_subjectID, vote_value)
+        VALUES (:authorID, :type, :subjectID, :value)');
+
+        $query->bindValue(':authorID',$authorID,PDO::PARAM_INT);
+
+        $query->bindValue(':type', $type, PDO::PARAM_STR);
+
+        $query->bindValue(':subjectID',$subjectID,PDO::PARAM_INT);
+
+        $query->bindValue(':value', $value, PDO::PARAM_INT);
+
+        $query->execute();
+
+}
+
 function set_comment($content, $authorID, $postDate, $subjectType, $subjectID){
     global $db;
 
