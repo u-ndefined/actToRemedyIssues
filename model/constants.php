@@ -18,4 +18,6 @@ define('ERR_BAN', 'Vous avez été banni, impossible de vous connecter');
 
 define('ERR_IS_NOT_ADMIN','Cette page est réservée aux administrateurs');
 
+define('ERR_ALREADY_VOTED','Vous avez déjà voté !');
+
 ?>

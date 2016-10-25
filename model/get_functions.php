@@ -1,4 +1,47 @@
 <?php
+function get_votes($type, $subjectID){
+    global $db;
+
+     $req = $db->prepare('SELECT vote_value FROM vote
+        WHERE vote_subjectType = :type AND vote_subjectID = :subjectID');
+
+     $req->bindValue(':type', $type, PDO::PARAM_STR);
+
+    $req->bindValue(':subjectID',$subjectID,PDO::PARAM_INT);
+
+    $req->execute();
+
+    $values = $req->fetchAll();
+
+    $value = 0;
+
+    foreach ($values as $key => $v) {
+        $value += $v['vote_value'];
+    }
+
+    return $value;
+}
+
+function get_vote($authorID, $type, $subjectID){
+    global $db; 
+
+    $req = $db->prepare('SELECT vote_value
+        FROM vote
+        WHERE vote_subjectType = :type AND vote_subjectID = :subjectID AND vote_authorID = :authorID');
+
+    $req->bindValue(':authorID',$authorID,PDO::PARAM_INT);
+
+    $req->bindValue(':type', $type, PDO::PARAM_STR);
+
+    $req->bindValue(':subjectID',$subjectID,PDO::PARAM_INT);
+
+    $req->execute();
+
+    $value = $req->fetch();
+
+    return $value;
+}
+
 function get_comments($subjectType, $subjectID){
     global $db; 
 

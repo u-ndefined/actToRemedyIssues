@@ -37,6 +37,7 @@ else {
 	$member = get_memberByName($_POST['username']); //recuperation des infos en fonction de l'username
 
 	if ($member['member_password'] == md5($_POST['password'])){ // Acces OK !
+	// if ($member['member_password'] == $_POST['password']){ // Acces OK !
 
 		if($member['member_rank'] == 0) error(ERR_BAN);
 		else {

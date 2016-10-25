@@ -20,7 +20,7 @@ else {
 	?>
 	<div id="mini_profil">
 		<div id="mini_profil_user">
-			<img id="mini_profil_picture" src="./images/avatars/<?php echo $picture;?>" alt="pas d\'avatar" />
+			<img id="mini_profil_picture" src="./images/avatars/<?php echo $picture;?>" alt="pas d'avatar" />
 			<p id="mini_profil_username"><?php echo $username; ?><p>
 		</div>
 		<div id="mini_profil_links">

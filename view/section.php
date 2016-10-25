@@ -25,6 +25,11 @@ if(isset($issues)){
 				<?php
 				}
 				?>
+				<p>Urgency: <?php echo $issue['issue_urgency']?>
+				<a href="ari.php?page=vote&amp;vote=1&amp;type=issue&amp;id=<?php echo $issue['issue_id'];?>&amp;s=<?php echo $issue['issue_sectionID'];?>">up vote</a>
+				<a href="ari.php?page=vote&amp;vote=-1&amp;type=issue&amp;id=<?php echo $issue['issue_id'];?>&amp;s=<?php echo $issue['issue_sectionID'];?>">down vote</a>
+				</p>
+				
 				<a href="ari.php?page=comment&amp;action=read&amp;type=issue&amp;subjectID=<?php echo $issue['issue_id'];?>">commentaires</a>
 				</div>
 				
@@ -51,6 +56,10 @@ if(isset($issues)){
 					<?php
 					}
 					?>
+					<p>Urgency: <?php echo $remedy['remedy_relevence']?>
+				<a href="ari.php?page=vote&amp;vote=1&amp;type=remedy&amp;id=<?php echo $remedy['remedy_id'];?>&amp;s=<?php echo $issue['issue_sectionID'];?>">up vote</a>
+				<a href="ari.php?page=vote&amp;vote=-1&amp;type=remedy&amp;id=<?php echo $remedy['remedy_id'];?>&amp;s=<?php echo $issue['issue_sectionID'];?>">down vote</a>
+				</p>
 					<a href="ari.php?page=comment&amp;action=read&amp;type=remedy&amp;subjectID=<?php echo $remedy['remedy_id'];?>">commentaires</a>
 					</div>
 
@@ -78,6 +87,10 @@ if(isset($issues)){
 						<?php
 						}
 						?>
+						<p>Urgency: <?php echo $act['act_feasibility']?>
+				<a href="ari.php?page=vote&amp;vote=1&amp;type=act&amp;id=<?php echo $act['act_id'];?>&amp;s=<?php echo $issue['issue_sectionID'];?>">up vote</a>
+				<a href="ari.php?page=vote&amp;vote=-1&amp;type=act&amp;id=<?php echo $act['act_id'];?>&amp;s=<?php echo $issue['issue_sectionID'];?>">down vote</a>
+				</p>
 						<a href="ari.php?page=comment&amp;action=read&amp;type=act&amp;subjectID=<?php echo $act['act_id'];?>">commentaires</a>
 						</div>
 

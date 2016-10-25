@@ -83,6 +83,12 @@ require_once("controller/first_php.php");
 			require_once('view/comment.php');
 			break;
 
+		case 'vote':
+			require_once('controller/vote.php');
+			// require_once("view/first_html.php");
+			// require_once('view/vote.php');
+			break;
+
 		default:
 			require_once('controller/index.php');
 			require_once("view/first_html.php");

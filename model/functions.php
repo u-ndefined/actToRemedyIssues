@@ -57,3 +57,26 @@ $level=(isset($_SESSION['level']))?$_SESSION['level']:1;
 return ($authorisation_required <= intval($level));
 
 }
+
+function alreadyVoted($authorID, $type, $subjectID, $value){
+  $vote = get_vote($authorID, $type, $subjectID);
+  $voted = ($vote['vote_value'] == $value?true:false);
+  return $voted;
+}
+
+function vote($authorID, $type, $subjectID, $value){
+  $vote = get_vote($authorID, $type, $subjectID);
+
+  if(empty($vote)) set_vote($authorID, $type, $subjectID, $value);
+  else {
+    $canVote = ($vote['vote_value'] == $value?false:true);
+    if($canVote) update_vote($authorID, $type, $subjectID, $value);
+    else error(ERR_ALREADY_VOTED);
+  }
+}
+
+
+
+
+
+
